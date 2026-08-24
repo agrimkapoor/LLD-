@@ -4,10 +4,18 @@
 
 class Robot{
     public:
+    // class ka dynamic hissa ( change ho rha hai)
     virtual void talk() = 0;
     virtual void walk() = 0;
     virtual void fly() = 0;
+
+    // class ka static hissa
+    virtual void projection() = 0;
 };
+
+// agar inheritance se kare toh combinations explode
+// hamari class mei 3 fn change ho sakte toh uski alag se class banani hogi 
+// dynamic hissa ko nikal ke alag classes mei daalna hoga
 
 // companion : cant fly baaki sab karega
 class CompanionRobot : public Robot{
@@ -20,6 +28,10 @@ class CompanionRobot : public Robot{
     }
     void fly() override{
         cout<<"Can not fly";
+    }
+
+    void projection() override{
+        cout<<" Companion ka projec";
     }
 };
 
@@ -37,6 +49,9 @@ public:
 
     void fly() override {
         cout << "Flying";
+    }
+    void projection() override{
+        cout<<" worker ka projec";
     }
 };
 
