@@ -1,4 +1,5 @@
 // factory design pattern : object creation ka logic ek alag class mei handle hoga
+//simple factory
 #include <iostream>
 using namespace std;
 
