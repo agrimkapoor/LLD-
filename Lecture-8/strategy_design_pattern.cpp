@@ -111,7 +111,7 @@ class WorkerRobot{
 };
 
 int main() {
-    Robot* robot1 = new Robot(new NormalWalk(),new NormalTalk(),new NoFly());
+    Robot* robot1 = new CompanionRobot(new NormalWalk(),new NormalTalk(),new NoFly());
     
     robot1->walk();
     robot1->talk();
