@@ -67,7 +67,7 @@ public:
 
 class Robot{
     protected:
-    WalkableRobot* walkBehavior;
+    WalkableRobot* walkBehavior; // Robot HAS-A WalkableRobot
     TalkableRobot* talkBehavior;
     FlyableRobot* flyBehavior;
 
@@ -88,6 +88,26 @@ class Robot{
     void fly() { 
         flyBehavior->fly(); 
     }
+    virtual void projection() = 0;
+};
+
+class CompanionRobot{
+    public: 
+    CompanionRobot(WalkableRobot* w, TalkableRobot* t, FlyableRobot* f) : Robot(w, t, f) {}
+
+    void projection () override{
+        cout << "Displaying friendly companion features..." << endl;
+    }
+};
+
+class WorkerRobot{
+    public:
+    WorkerRobot(WalkableRobot* w, TalkableRobot* t, FlyableRobot* f)
+        : Robot(w, t, f) {}
+
+    void projection() override {
+        cout << "Displaying worker efficiency stats..." << endl;
+    }
 };
 
 int main() {
@@ -96,7 +116,14 @@ int main() {
     robot1->walk();
     robot1->talk();
     robot1->fly();
+    robot1->projection();
     cout << "--------------------" << endl;
+
+    Robot* robot2 = new WorkerRobot(new NoWalk(), new NoTalk(), new NormalFly());
+    robot2->walk();
+    robot2->talk();
+    robot2->fly();
+    robot2->projection();
 
     return 0;
 }
