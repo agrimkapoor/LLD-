@@ -119,7 +119,7 @@ int main() {
     robot1->projection();
     cout << "--------------------" << endl;
 
-    Robot* robot2 = new WorkerRobot(new NoWalk(), new NoTalk(), new NormalFly());
+    Robot* robot2 = new WorkerRobot(new NoWalk(), new NoTalk(), new NormalFly()); // dependency injection : jo bhi objects chahiye hai woh bahar se aa rhe hai
     robot2->walk();
     robot2->talk();
     robot2->fly();
