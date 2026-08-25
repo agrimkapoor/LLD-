@@ -1,0 +1,1 @@
+//Wall Socket ──→ Adapter ──→ Phone
